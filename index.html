@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>one tough cookie</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- START SCREEN -->
+    <div id="startScreen">
+        <div class="window-header">
+            <span>one tough cookie</span>
+            <div class="window-controls">
+                <button onclick="minimizeWindow()">
+                    <img src="assets/icons/minimize.png" alt="Minimize">
+                </button>
+                <button onclick="closeWindow()">
+                    <img src="assets/icons/close.png" alt="Close">
+                </button>
+            </div>
+        </div>
+
+        <div class="start-content">
+
+            <div id="streakDisplay" class="streak">0 🔥</div>
+
+            <h3>let's crumble<br>that to-do list!</h3>
+
+            <img src="assets/images/cookie.png" alt="cookie" class="cookie" />
+            <button onclick="showTodoScreen()">start!</button>
+        </div>
+    </div>
+
+
+    <!-- TODO SCREEN -->
+    <div id="todoScreen" style="display: none;">
+        <div class="window-header">
+            <span>my to-do list :-)</span>
+            <div class="window-controls">
+                <button onclick="minimizeWindow()">
+                    <img src="assets/icons/minimize.png" alt="Minimize">
+                </button>
+                <button onclick="closeWindow()">
+                    <img src="assets/icons/close.png" alt="Close">
+                </button>
+            </div>
+        </div>
+
+
+
+
+        <div class="top-bar">
+            <!-- <div class="progress-wrapper">
+
+                <p class="progress-label">progress <span id="progressPercent">0%</span></p>
+                <div class="progress-container">
+                    <div id="progressBar"></div>
+                </div>
+
+                <img id="cookieProgressImg" src="assets/images/25percent.png" class="progress-cookie" alt="Progress Cookie" />
+            </div> -->
+
+            <div class="progress-wrapper">
+                <div class="progress-header">
+                    <span class="progress-label">progress</span>
+                    <span id="progressPercent">0%</span>
+
+                </div>
+
+                <div class="progress-row">
+                    <div class="progress-container">
+                        <div id="progressBar"></div>
+                    </div>
+                    <img id="cookieProgressImg" src="assets/images/25percent.png" class="progress-cookie"
+                        alt="Progress Cookie" />
+                </div>
+            </div>
+
+
+            <div class="calendar-box">
+                <div class="date">
+                    <div class="calendar-month"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-weekday"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="What's on your plate?" />
+            <button id="add-btn"><img src="assets/icons/add_task.png" alt="Add Task" /></button>
+        </div>
+
+        <div class="task-list">
+            <ul id="taskList"></ul>
+        </div>
+
+
+        <button id="doneBtn" onclick="handleDone()">done!</button>
+
+
+    </div>
+
+
+    <!-- NOT DONE SCREEN -->
+    <div id="notDoneScreen" style="display: none;">
+        <div class="window-header">
+            <span>not quite...</span>
+            <div class="window-controls">
+                <button onclick="minimizeWindow()">
+                    <img src="assets/icons/minimize.png" alt="Minimize">
+                </button>
+                <button onclick="closeWindow()">
+                    <img src="assets/icons/close.png" alt="Close">
+                </button>
+            </div>
+        </div>
+
+        <div class="done-content">
+
+            <h3>you're a tough cookie</h3>
+
+            <img src="assets/images/tough_cookie.png" alt="tough cookie" class="cookie" />
+            <h2>keep going!</h2>
+            <button onclick="returnToTodo()">go back</button>
+        </div>
+    </div>
+
+
+
+    <!-- DONE SCREEN -->
+    <div id="doneScreen" style="display: none;">
+        <div class="window-header">
+            <span>congrats!</span>
+            <div class="window-controls">
+                <button onclick="minimizeWindow()">
+                    <img src="assets/icons/minimize.png" alt="Minimize">
+                </button>
+                <button onclick="closeWindow()">
+                    <img src="assets/icons/close.png" alt="Close">
+                </button>
+            </div>
+        </div>
+
+        <div class="done-content">
+
+
+            <h3>woo hoo! crushed it!</h3>
+
+            <img src="assets/images/smart_cookie.png" alt="smart cookie" class="cookie" />
+            <h2>you get a COOKIE :-)</h2>
+            <button onclick="goHome()">back to home</button>
+        </div>
+    </div>
+
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
